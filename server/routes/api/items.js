@@ -17,11 +17,10 @@ router.get('/:id', (req, res) => {
 });
 
 // Paginate Items
-router.get('/p/:start/:end', (req, res) => {
-
-  const start = parseInt(req.params.start);
-  const end = parseInt(req.params.end);
-  const found = items.slice(start, end);
+router.get('/page/:page_number/amount/:page_amount', (req, res) => {
+  const page = parseInt(req.params.page_number) - 1;
+  const pageAmount = parseInt(req.params.page_amount);
+  const found = items.slice(page * pageAmount, (page + 1) * pageAmount);
 
   if (found) {
     res.json(found);
