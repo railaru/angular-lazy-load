@@ -13,7 +13,7 @@ router.get('/p/:start/:end', (req, res) => {
   const found = items.slice(start, end);
 
   if (found) {
-    res.json(items.slice(start, end));
+    res.json(found);
   } else {
     res.status(400).json({ msg: `No item with the id of ${req.params.id}` });
   }
