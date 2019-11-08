@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const items = require('../../data/item_list');
 
-// Gets All items
+// Get All items
 router.get('/', (req, res) => res.json(items));
 
 // Paginate Items
