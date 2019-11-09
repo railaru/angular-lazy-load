@@ -20,7 +20,7 @@ export class GridComponent implements OnInit {
   ngOnInit(): void {
 
     this.getCards();
-    this.detectBottom();
+    this.handleScroll();
   }
 
   getCards(): void {
@@ -37,15 +37,18 @@ export class GridComponent implements OnInit {
     });
   }
 
+  handleScroll(): void {
+
+    window.onscroll = () => this.detectBottom();
+  }
+
   detectBottom(): void {
 
-    window.onscroll = () => {
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         if (!this.loadedAll) {
           this.apiService.paginatePage();
           this.getCards();
         }
       }
-    };
   }
 }
