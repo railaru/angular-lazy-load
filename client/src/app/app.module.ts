@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
 import { CardComponent } from './components/presentationals/card/card.component';
 import { GridComponent } from './components/containers/grid/grid.component';
+import { CardShimmerComponent } from './components/presentationals/card-shimmer/card-shimmer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    GridComponent
+    GridComponent,
+    CardShimmerComponent
   ],
   imports: [
     BrowserModule,

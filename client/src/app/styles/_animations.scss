@@ -22,3 +22,32 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.shine {
+  $shine-opacity: 5%;
+  background: darken(#f6f7f8, $shine-opacity)  linear-gradient(
+      to right,
+      darken(#f6f7f8, $shine-opacity) 0%,
+      darken(#edeef1, $shine-opacity) 20%,
+      darken(#f6f7f8, $shine-opacity) 40%,
+      darken(#f6f7f8, $shine-opacity) 100%
+  ) no-repeat;
+  background-size: 800px 400px;
+  display: inline-block;
+  position: relative;
+
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholder-shimmer;
+  animation-timing-function: linear;
+}
+
+@keyframes placeholder-shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
