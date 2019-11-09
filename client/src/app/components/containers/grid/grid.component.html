@@ -15,9 +15,7 @@
       [tags]="card.tags">
     </app-card>
   </div>
-  <ng-container *ngIf="isLoading">
-    <div class="spinner-container">
-      <span class="spinner"></span>
-    </div>
-  </ng-container>
+  <div *ngIf="isLoading" class="spinner-container">
+    <span class="spinner"></span>
+  </div>
 </ng-container>

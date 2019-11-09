@@ -22,6 +22,5 @@ export class ApiService {
 
   paginatePage(): void {
     this.pageNr ++;
-    console.log(this.pageNr);
   }
 }
