@@ -7,7 +7,9 @@
     [description]="card.description"
     [tags]="card.tags">
   </app-card>
-  <ng-container *ngIf="isLoading">
-    loading...
-  </ng-container>
 </div>
+<ng-container *ngIf="isLoading">
+  <div class="spinner-container">
+    <span class="spinner"></span>
+  </div>
+</ng-container>

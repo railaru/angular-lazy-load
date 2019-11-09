@@ -25,7 +25,7 @@ router.get('/page/:page_number/amount/:page_amount', (req, res) => {
   if (found) {
     setTimeout(() => {
       res.json(found);
-    }, 500)
+    }, 1000)
   } else {
     res.status(400).json({ msg: `No items with the specified parameters` });
   }
