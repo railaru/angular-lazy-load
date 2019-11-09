@@ -13,6 +13,8 @@ export class GridComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   cards: ItemInterface[] = [];
+  isLoading = false;
+  loadedAll = false;
 
   ngOnInit(): void {
 
@@ -21,10 +23,15 @@ export class GridComponent implements OnInit {
   }
 
   getCards(): void {
+
+    this.isLoading = true;
     this.apiService.fetchItems().subscribe(res => {
         if (res.length) {
           this.cards.push(...res);
+        } else {
+          this.loadedAll = true;
         }
+        this.isLoading = false;
     });
   }
 
@@ -32,8 +39,10 @@ export class GridComponent implements OnInit {
 
     window.onscroll = () => {
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        this.apiService.paginatePage();
-        this.getCards();
+        if (!this.loadedAll) {
+          this.apiService.paginatePage();
+          this.getCards();
+        }
       }
     };
   }

@@ -1,15 +1,13 @@
 <div class="grid">
-  <ng-container *ngIf="cards">
-    <app-card
-      *ngFor="let card of cards"
-      [type]="card.type"
-      [title]="card.title"
-      [img]="card.img"
-      [description]="card.description"
-      [tags]="card.tags">
-    </app-card>
-  </ng-container>
-  <ng-container *ngIf="!cards">
+  <app-card
+    *ngFor="let card of cards"
+    [type]="card.type"
+    [title]="card.title"
+    [img]="card.img"
+    [description]="card.description"
+    [tags]="card.tags">
+  </app-card>
+  <ng-container *ngIf="isLoading">
     loading...
   </ng-container>
 </div>

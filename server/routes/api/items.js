@@ -23,7 +23,9 @@ router.get('/page/:page_number/amount/:page_amount', (req, res) => {
   const found = items.slice(page * pageAmount, (page + 1) * pageAmount);
 
   if (found) {
-    res.json(found);
+    setTimeout(() => {
+      res.json(found);
+    }, 500)
   } else {
     res.status(400).json({ msg: `No items with the specified parameters` });
   }
