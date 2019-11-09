@@ -1,0 +1,8 @@
+<div class="grid">
+  <ng-container *ngIf="cards">
+    <app-card *ngFor="let card of cards"></app-card>
+  </ng-container>
+  <ng-container *ngIf="!cards">
+    loading...
+  </ng-container>
+</div>
