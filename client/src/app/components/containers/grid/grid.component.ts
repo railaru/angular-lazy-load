@@ -15,6 +15,7 @@ export class GridComponent implements OnInit {
   cards: ItemInterface[] = [];
   isLoading = false;
   loadedAll = false;
+  isFirstLoad = true;
 
   ngOnInit(): void {
 
@@ -32,6 +33,7 @@ export class GridComponent implements OnInit {
           this.loadedAll = true;
         }
         this.isLoading = false;
+        this.isFirstLoad = false;
     });
   }
 

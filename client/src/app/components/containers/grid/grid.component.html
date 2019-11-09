@@ -1,16 +1,23 @@
-<div class="grid">
-  <app-card-shimmer></app-card-shimmer>
-  <app-card
-    *ngFor="let card of cards"
-    [type]="card.type"
-    [title]="card.title"
-    [img]="card.img"
-    [description]="card.description"
-    [tags]="card.tags">
-  </app-card>
-</div>
-<ng-container *ngIf="isLoading">
-  <div class="spinner-container">
-    <span class="spinner"></span>
+<ng-container *ngIf="isFirstLoad">
+  <div class="grid">
+    <app-card-shimmer *ngFor="let cardShimmer of [0, 1, 2, 3, 4, 5, 6, 7]"></app-card-shimmer>
   </div>
+</ng-container>
+
+<ng-container *ngIf="!isFirstLoad">
+  <div class="grid">
+    <app-card
+      *ngFor="let card of cards"
+      [type]="card.type"
+      [title]="card.title"
+      [img]="card.img"
+      [description]="card.description"
+      [tags]="card.tags">
+    </app-card>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="spinner-container">
+      <span class="spinner"></span>
+    </div>
+  </ng-container>
 </ng-container>
