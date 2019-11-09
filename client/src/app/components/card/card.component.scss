@@ -1,0 +1,46 @@
+.card{
+  $hover-transition: .4s;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: $hover-transition;
+  display: block;
+  position: relative;
+  &__img {
+    height: 140px;
+    background: center/cover no-repeat;
+  }
+  &__content {
+    padding: 29px 35px 35px;
+  }
+  &__type {
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color: #9aa0a6;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__title {
+    margin-top: 10px;
+    color: #3c4043;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: normal;
+    line-height: 26px;
+    transition: $hover-transition;
+  }
+  &__description {
+    margin-top: 15px;
+    padding-bottom: 20px;
+    color: #5f6368;
+    font-size: 14px;
+    letter-spacing: normal;
+    line-height: 22px;
+  }
+  &:hover, &:focus {
+    transition: $hover-transition;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    .card__title {
+      transition: $hover-transition;
+      color: #4285f4;
+    }
+  }
+}
