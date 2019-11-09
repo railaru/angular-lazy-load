@@ -12,12 +12,29 @@ export class GridComponent implements OnInit {
 
   constructor(private apiService: ApiService) {}
 
-  cards: ItemInterface[];
+  cards: ItemInterface[] = [];
 
   ngOnInit(): void {
 
+    this.getCards();
+    this.detectBottom();
+  }
+
+  getCards(): void {
     this.apiService.fetchItems().subscribe(res => {
-      this.cards = res;
+        if (res.length) {
+          this.cards.push(...res);
+        }
     });
+  }
+
+  detectBottom(): void {
+
+    window.onscroll = () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        this.apiService.paginatePage();
+        this.getCards();
+      }
+    };
   }
 }

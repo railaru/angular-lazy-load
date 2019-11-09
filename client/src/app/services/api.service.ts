@@ -12,11 +12,16 @@ import ItemInterface from '../interfaces/item.interface';
 
 export class ApiService {
 
-  private apiUrl = 'http://localhost:5000/api/items';
+  private pageNr = 1;
 
   constructor(private http: HttpClient) { }
 
   fetchItems(): Observable<ItemInterface[]> {
-    return this.http.get<ItemInterface[]>(this.apiUrl);
+    return this.http.get<ItemInterface[]>(`http://localhost:5000/api/items/page/${this.pageNr}/amount/8`);
+  }
+
+  paginatePage(): void {
+    this.pageNr ++;
+    console.log(this.pageNr);
   }
 }
