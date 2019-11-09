@@ -1,8 +1,6 @@
-<ng-container *ngIf="isFirstLoad">
-  <div class="grid">
-    <app-card-shimmer *ngFor="let cardShimmer of [0, 1, 2, 3, 4, 5, 6, 7]"></app-card-shimmer>
-  </div>
-</ng-container>
+<div class="grid" *ngIf="isFirstLoad">
+  <app-card-shimmer *ngFor="let cardShimmer of [0, 1, 2, 3, 4, 5, 6, 7]"></app-card-shimmer>
+</div>
 
 <ng-container *ngIf="!isFirstLoad">
   <div class="grid">
